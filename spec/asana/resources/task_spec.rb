@@ -61,6 +61,14 @@ module Asana
       end
     end
 
+    describe '#add_tag' do
+      it 'should add the tag to the given task' do
+        task = Workspace.all.first.create_task(:name => 'asana-test-task-remove-tag', :assignee => 'me')
+        tag = Workspace.all.first.create_tag(:name => 'asana-test-task-parent-tag')
+        task.remove_tag tag.id
+      end
+    end
+
     describe '#create_story' do
       it 'should create a new story for the given task' do
         task = Project.all.first.tasks.first
