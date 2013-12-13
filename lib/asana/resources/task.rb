@@ -58,6 +58,11 @@ module Asana
       self
     end
 
+    def get_tags
+      path = "#{self.id}/tags"
+      Task.get(path, nil)
+    end
+
     def create_story(*args)
       path = "#{self.id}/stories"
       options = { :task => self.id }
